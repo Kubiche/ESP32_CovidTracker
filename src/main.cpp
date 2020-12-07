@@ -2,8 +2,7 @@
 the Florida GIS Dashboard pertaining Highlands county.     */
 
 #include <Arduino.h>
-#include <ESP8266WiFi.h>
-//#include <WiFiClientSecure.h>
+#include <WiFiClientSecure.h>
 #include <LiquidCrystal_I2C.h>
 #include <ArduinoJson.h>
       
@@ -15,7 +14,7 @@ const char* password = "PASSWORD"; // WiFi Password
 const char* host = "services1.arcgis.com";
 String request = "/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Cases/FeatureServer/0/query?where=COUNTYNAME%20%3D%20%27HIGHLANDS%27&outFields=CasesAll,Deaths,NewPos&returnGeometry=false&outSR=4326&f=json";
 const int httpsPort = 443;
-//const char fingerprint[] PROGMEM = "e260c5c12fe0b8ab21052cc67ab6a885c2760f85"; //SHA1 finger print
+
 
 void setup() {
   
@@ -62,10 +61,8 @@ void loop() {
   WiFiClientSecure httpsClient;    //Declare object of class WiFiClient
 
   Serial.println(host);
-  //Serial.printf("Using fingerprint '%s'\n", fingerprint);
-
-  //httpsClient.setFingerprint(fingerprint);
-  httpsClient.setInsecure();
+  
+  //httpsClient.setCACert();
   httpsClient.setTimeout(15000); // 15 Seconds
   delay(1000);
 
