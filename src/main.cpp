@@ -23,7 +23,7 @@ void setup() {
   lcd.backlight();
   lcd.setCursor(0,0);
   Serial.print("Loading...");
-  lcd.print("Covid Counter by JC");
+  lcd.print("   Covid Tracker HC");
   
   Serial.begin(115200);
   Serial.print("Connecting");
